@@ -67,7 +67,9 @@
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="descrição">
                             </div>
-                            <button type="submit" class="btn btn-default">Buscar</button>
+                            <button type="submit" class="btn btn-default ">
+                                <i class="glyphicon glyphicon-search"></i> Buscar
+                            </button>
                         </form>
 
                     </div>
@@ -84,16 +86,54 @@
 
                         <div class="form-group">
                             <label>Descrição tarefa</label>
-                            <input type="text" name="descricao" id="descricao" value="" placeholder="descrição tarefa"/>
+                            <input type="text" name="descricao" id="descricao" value="" placeholder="descrição tarefa" class="form-control"/>
 
                         </div>
                         <div>
-                            <button name="cmdSalva" id="cmdSalva">
-                                Salvar
+                            <button name="cmdSalva" id="cmdSalva" class="btn btn-default">
+                               <i class="glyphicon glyphicon-floppy-saved"></i> Salvar
                             </button>
                         </div>
                     </fieldset>
 
+                    <h1>Lista de tarefas</h1>
+                    <!-- Tabela com lista de tarefas -->
+                    <table class="table table-striped">
+
+                        <thead>
+                            <tr>
+                                <th>Descrição</th>
+                                <th>Incluir</th>
+                                <th>Excluir</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- linha 1-->
+                            <tr>
+                                <td>Curso javascript</td>
+                                <td>
+                                    <button  class="btn btn-default">
+                                        <i class="glyphicon glyphicon-pencil"></i> Editar
+                                    </button>
+                                </td>
+                                <td>
+                                    <button  class="btn btn-default">
+                                        <i class="glyphicon glyphicon-trash"></i> Remover
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- linha 2-->
+                            <tr>
+                                <td>Curso CSS</td>
+                                <td>
+                                    <button  class="btn btn-default">Editar</button>
+                                </td>
+                                <td>
+                                    <button  class="btn btn-default">Remover</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </form>
             </div>
 
