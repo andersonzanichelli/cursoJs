@@ -1,10 +1,103 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Curso JS</title>
+        <title>Tarefas</title>
         <meta charset="utf-8"/>
+
+        <!-- carregando css de arquivos externos -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/bootstrap-theme.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+        <!-- css embeded na pagina -->
+        <style type="text/css">
+
+        </style>
+
+        <!-- carregando js de arquivos externos -->
+        <script src="js/jquery-2.1.3.js" />
+        <script src="js/bootstrap.js" />
+        <script src="js/app.js" />
+        <!-- Javascript embeded na pagina -->
+        <script>
+
+        </script>
     </head>
     <body>
+        <!--
+            Tecnologia
+                html, css, js
+                jQuery
+                bootstrap Css
 
+            Lista de tarefas
+                Crud tarefas
+
+            Cara a aplicação:
+                Single Page App
+                Formulário para adicionar e editar.
+                Tabela para a lista de tarefas, com botão para remover
+                    + Botão editar
+                    + Botão incluir
+                Filtro de tarefas
+                    Conforme digita, mostra ou não a tarefa (linha da tabela)
+                Carregamento de tarefas via ajax
+
+        -->
+        <div class="container">
+
+            <!-- Inicio da navegação -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Tarefas</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="descrição">
+                            </div>
+                            <button type="submit" class="btn btn-default">Buscar</button>
+                        </form>
+
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <!-- TERMINO DA NAVEGACAO -->
+
+            <div>
+                <form name="addTarefa" id="frmAddTarefa" action="" >
+                    <fieldset>
+                        <legend>Editar/Incluir tarefa</legend>
+
+                        <div class="form-group">
+                            <label>Descrição tarefa</label>
+                            <input type="text" name="descricao" id="descricao" value="" placeholder="descrição tarefa"/>
+
+                        </div>
+                        <div>
+                            <button name="cmdSalva" id="cmdSalva">
+                                Salvar
+                            </button>
+                        </div>
+                    </fieldset>
+
+                </form>
+            </div>
+
+
+        </div>
     </body>
 </html>
