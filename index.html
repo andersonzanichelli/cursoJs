@@ -8,17 +8,19 @@
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/bootstrap-theme.css" />
         <link rel="stylesheet" href="css/custom.css" />
+        <link rel="stylesheet" href="css/pnotify.custom.min.css" />
         <!-- css embeded na pagina -->
         <style type="text/css">
 
         </style>
 
         <!-- carregando js de arquivos externos -->
-        <script src="js/jquery-2.1.3.js" />
-        <script src="js/bootstrap.js" />
-        <script src="js/app.js" />
+        <script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+        <script type="text/javascript" src="js/bootstrap.js" ></script>
+        <script type="text/javascript" src="js/app.js" ></script>
+        <script type="text/javascript" src="js/pnotify.custom.min.js"></script>
         <!-- Javascript embeded na pagina -->
-        <script>
+        <script type="text/javascript">
 
         </script>
     </head>
@@ -65,11 +67,8 @@
 
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="descrição">
+                                <input type="text" id="busca" class="form-control" placeholder="descrição">
                             </div>
-                            <button type="submit" class="btn btn-default ">
-                                <i class="glyphicon glyphicon-search"></i> Buscar
-                            </button>
                         </form>
 
                     </div>
@@ -80,13 +79,14 @@
             <!-- TERMINO DA NAVEGACAO -->
 
             <div>
-                <form name="addTarefa" id="frmAddTarefa" action="" >
+                <form name="addTarefa" id="frmAddTarefa" action="">
                     <fieldset>
                         <legend>Editar/Incluir tarefa</legend>
-
+                        <input type="hidden"  name="id" id="idTarefa" value="" />
+                        <!--
                         <div class="form-group">
-                            <label>Descrição tarefa</label>
-                            <input type="text" name="descricao" id="descricao" value="" placeholder="descrição tarefa" class="form-control"/>
+                            <label>Descri&ccedil;&atilde;o tarefa</label>
+                            <input type="text" name="descricao" id="descricaoTarefa" value="" placeholder="descrição tarefa" class="form-control"/>
 
                         </div>
                         <div>
@@ -94,50 +94,46 @@
                                <i class="glyphicon glyphicon-floppy-saved"></i> Salvar
                             </button>
                         </div>
+                        -->
+                        <div class="input-group">
+                          <input type="text" name="descricao" id="descricaoTarefa" class="form-control" placeholder="descricao">
+                          <span class="input-group-btn">
+                            <button name="cmdSalva" id="cmdSalva" class="btn btn-default" type="submit">Salvar</button>
+                          </span>
+                        </div>
                     </fieldset>
-
-                    <h1>Lista de tarefas</h1>
-                    <!-- Tabela com lista de tarefas -->
-                    <table class="table table-striped">
-
-                        <thead>
-                            <tr>
-                                <th>Descrição</th>
-                                <th>Incluir</th>
-                                <th>Excluir</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- linha 1-->
-                            <tr>
-                                <td>Curso javascript</td>
-                                <td>
-                                    <button  class="btn btn-default">
-                                        <i class="glyphicon glyphicon-pencil"></i> Editar
-                                    </button>
-                                </td>
-                                <td>
-                                    <button  class="btn btn-default">
-                                        <i class="glyphicon glyphicon-trash"></i> Remover
-                                    </button>
-                                </td>
-                            </tr>
-                            <!-- linha 2-->
-                            <tr>
-                                <td>Curso CSS</td>
-                                <td>
-                                    <button  class="btn btn-default">Editar</button>
-                                </td>
-                                <td>
-                                    <button  class="btn btn-default">Remover</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
                 </form>
+
+                <h1>Lista de tarefas</h1>
+                <!-- Tabela com lista de tarefas -->
+                <table id="tblListaTarefas" class="table table-striped table-condensed">
+
+                    <thead>
+                        <tr>
+                            <th>Editar</th>
+                            <th>Descrição</th>
+                            <th>Excluir</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- linha 1-->
+                        <tr id="templateLinhaListaTarefas" style="display: none;">
+                            <td>
+                                <button id="edit" class="btn btn-default btn-xs">
+                                    <i class="glyphicon glyphicon-pencil"></i>
+                                </button>
+                            </td>
+                            <td class="descricaoTarefa searchable"></td>
+                            <td>
+                                <button id="remove" class="btn btn-default btn-xs">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
-
-
         </div>
     </body>
 </html>
