@@ -7,8 +7,8 @@
         <!-- carregando css de arquivos externos -->
         <link rel="stylesheet" href="css/bootstrap.css" />
         <link rel="stylesheet" href="css/bootstrap-theme.css" />
-        <link rel="stylesheet" href="css/custom.css" />
         <link rel="stylesheet" href="css/pnotify.custom.min.css" />
+        <link rel="stylesheet" href="css/app.css" />
         <!-- css embeded na pagina -->
         <style type="text/css">
 
@@ -19,6 +19,7 @@
         <script type="text/javascript" src="js/bootstrap.js" ></script>
         <script type="text/javascript" src="js/app.js" ></script>
         <script type="text/javascript" src="js/pnotify.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.formatFields.js"></script>
         <!-- Javascript embeded na pagina -->
         <script type="text/javascript">
 
@@ -58,16 +59,27 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">Tarefas</a>
+                        <a class="navbar-brand" href="#">Agenda de Tarefas</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Exemplos <span class="caret"></span></a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="/formatFieldTest.html">Plugin jQuery para formatação</a></li>
+
+                            <li class="divider"></li>
+                            <li><a href="#">Novo exemplo</a></li>
+                          </ul>
+                        </li>
+                      </ul>
 
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <input type="text" id="busca" class="form-control" placeholder="descrição">
+                                <input type="text" id="busca" class="form-control" placeholder="buscar tarefa">
                             </div>
                         </form>
 
@@ -82,25 +94,40 @@
                 <form name="addTarefa" id="frmAddTarefa" action="">
                     <fieldset>
                         <legend>Editar/Incluir tarefa</legend>
-                        <input type="hidden"  name="id" id="idTarefa" value="" />
-                        <!--
+                        <input type="hidden"  name="id" id="tarefaId" value="" />
+
                         <div class="form-group">
                             <label>Descri&ccedil;&atilde;o tarefa</label>
-                            <input type="text" name="descricao" id="descricaoTarefa" value="" placeholder="descrição tarefa" class="form-control"/>
-
+                            <input type="text" name="descricao" id="tarefaDescricao" value="" placeholder="descrição tarefa" class="form-control" autocomplete="off"/>
+                            <!--
+                                Observe o uso do atributo autocomplete="off", essa instrução diz ao campo para não lembrar de valore anteriormente inseridos
+                            -->
                         </div>
+                        <div class="form-group">
+                            <label>Horário</label>
+                            <input type="text" name="hora" id="tarefaHora" data-custom-type="time" value=" " placeholder="00:00" class="form-control" style="width: 5em;"/>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                              <input type="checkbox" name="concluida" id="tarefaConcluida" > Concluída
+                            </label>
+                        </div>
+
                         <div>
                             <button name="cmdSalva" id="cmdSalva" class="btn btn-default">
                                <i class="glyphicon glyphicon-floppy-saved"></i> Salvar
                             </button>
                         </div>
-                        -->
+
+
+                        <!--
                         <div class="input-group">
                           <input type="text" name="descricao" id="descricaoTarefa" class="form-control" placeholder="descricao">
                           <span class="input-group-btn">
                             <button name="cmdSalva" id="cmdSalva" class="btn btn-default" type="submit">Salvar</button>
                           </span>
                         </div>
+                        -->
                     </fieldset>
                 </form>
 
@@ -110,22 +137,26 @@
 
                     <thead>
                         <tr>
-                            <th>Editar</th>
+                            <th style="width: 20px;">Editar</th>
                             <th>Descrição</th>
-                            <th>Excluir</th>
+                            <th class="align-center">Hora</th>
+                            <th class="align-center">Concluída</th>
+                            <th style="width: 20px;">Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
                         <!-- linha 1-->
                         <tr id="templateLinhaListaTarefas" style="display: none;">
-                            <td>
-                                <button id="edit" class="btn btn-default btn-xs">
+                            <td class="align-center">
+                                <button id="edit" class="btn btn-info btn-xs">
                                     <i class="glyphicon glyphicon-pencil"></i>
                                 </button>
                             </td>
-                            <td class="descricaoTarefa searchable"></td>
+                            <td class="tarefaDescricao searchable"></td>
+                            <td class="tarefaHora searchable align-center"></td>
+                            <td class="tarefaConcluida align-center"></td>
                             <td>
-                                <button id="remove" class="btn btn-default btn-xs">
+                                <button id="remove" class="btn btn-danger btn-xs">
                                     <i class="glyphicon glyphicon-trash"></i>
                                 </button>
                             </td>
@@ -133,6 +164,8 @@
 
                     </tbody>
                 </table>
+
+
             </div>
         </div>
     </body>

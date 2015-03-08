@@ -1,0 +1,9 @@
+[
+    {"descricao": "Curso HTML", "hora": "10:90", "concluida": "true"},
+    {"descricao": "Curso CSS", "hora": "8:25", "concluida": "true"},
+    {"descricao": "Curso JS", "hora": "8:20", "concluida": "true"},
+    {"descricao": "Tomar água", "hora": "10:90", "concluida": "true"},
+    {"descricao": "Almoçar", "hora": "12:00", "concluida": "true"},
+    {"descricao": "Tomar café", "hora": "16:00", "concluida": "false"}
+
+]

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Format field Plugin</title>
+        <meta charset="utf-8"/>
+
+        <!-- carregando css de arquivos externos -->
+        <link rel="stylesheet" href="css/bootstrap.css" />
+        <link rel="stylesheet" href="css/bootstrap-theme.css" />
+        <link rel="stylesheet" href="css/pnotify.custom.min.css" />
+        <link rel="stylesheet" href="css/app.css" />
+        <!-- css embeded na pagina -->
+        <style type="text/css">
+
+        </style>
+
+        <!-- carregando js de arquivos externos -->
+        <script type="text/javascript" src="js/jquery-2.1.3.js" ></script>
+        <script type="text/javascript" src="js/bootstrap.js" ></script>
+        <script type="text/javascript" src="js/app.js" ></script>
+        <script type="text/javascript" src="js/pnotify.custom.min.js"></script>
+        <script type="text/javascript" src="js/jquery.formatFields.js"></script>
+        <!-- Javascript embeded na pagina -->
+        <script type="text/javascript">
+
+            $(function(){
+                $('#hora').on('error', function(event, data){
+                    console.log('error');
+                    new PNotify({
+                        title: 'Mensagem do sistema',
+                        text: data.message,
+                        icon: 'glyphicon glyphicon-envelope'
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+
+        <div class="container">
+
+            <!-- Inicio da navegação -->
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">Plugin formatFields</a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                        <ul class="nav navbar-nav">
+                            <li><a href="/index.html">Voltar para agenda</a></li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+            </nav>
+            <!-- TERMINO DA NAVEGACAO -->
+
+            <!-- EXEMPLO DE USO DE PLUGIN -->
+            <fieldset>
+                <legend>Campos de Exemplo</legend>
+
+                <div class="form-group">
+                    <label for="idade">idade</label>
+                    <input type="text" name="idade" id="idade" value=""
+                           data-custom-type="number"
+                           class="form-control" />
+                    <!-- Demais atributos permitidos
+                           data-allow-fp="true"
+                           data-allow-negative="true"
+                    -->
+                    <p class="help-block">Permite numberos inteiros não negativos.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" name="telefone"
+                           id="telefone" value=""
+                           data-custom-type="phone"
+                           class="form-control" />
+                    <p class="help-block">Tente digitar somente os números.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefone">Hora</label>
+                    <input type="text" name="hora"
+                           id="hora" value=" "
+                           data-custom-type="time"
+                           class="form-control"
+                           style="width: 5em;"/>
+                    <p class="help-block">Tente digitar somente os números.</p>
+                    <p class="help-block">Insira uma data inválida.</p>
+                </div>
+
+            </fieldset>
+        </div>
+    </body>
+</html>

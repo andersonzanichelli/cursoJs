@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exemplo de extends</title>
+        <meta charset="utf-8" />
+        <script>
+
+            // Adicionando/Extendendo o Objeto String
+            String.prototype.replaceSpaces = function(){
+
+                return this.replace(/\s/g, '+');
+            }
+
+            function teste(){
+
+                var paragraph = document.getElementById('paragraph');
+
+                var texto = " Emerson Jose Morgado Brito ";
+
+                console.log(typeof texto)
+
+                paragraph.innerHTML = "|"+texto.replaceSpaces()+"|";
+            }
+
+        </script>
+    </head>
+    <body onload="teste()">
+        <p id="paragraph"></p>
+    </body>
+</html>
